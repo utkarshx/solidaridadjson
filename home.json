@@ -2,12 +2,14 @@
   "$jason": {
     "head": {
       "actions": {
-        "$load": "$network.request",
-        "options": {
-          "url": "https://www.jasonbase.com/things/enxw.json"
-        },
-        "success": {
-          "type": "$render"
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://www.jasonbase.com/things/enxw.json"
+          },
+          "success": {
+            "type": "$render"
+          }
         }
       },
       "templates": {
