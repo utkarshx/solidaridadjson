@@ -82,16 +82,6 @@
                         }
                       },
                       {
-                        "type": "label",
-                        "text": "Hello world",
-                        "style": {
-                          "font": "Avenir",
-                          "size": "30",
-                          "color": "rgb(200,0,0)",
-                          "padding": "10"
-                        }
-                      },
-                      {
                         "type": "vertical",
                         "components": [
                           {
@@ -121,6 +111,21 @@
                         "style": {
                           "padding_top": "10",
                           "width": "25"
+                        }
+                      },
+                      {
+                        "type": "textfield",
+                        "name": "password",
+                        "value": "dhenf93f!",
+                        "placeholder": "Enter password",
+                        "style": {
+                          "placeholder_color": "#cecece",
+                          "font": "HelveticaNeue",
+                          "align": "center",
+                          "width": "200",
+                          "height": "60",
+                          "secure": "true",
+                          "size": "12"
                         }
                       }
                     ]
