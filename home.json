@@ -2,30 +2,21 @@
   "$jason": {
     "head": {
       "actions": {
-        "$load": {
-          "type": "$network.request",
-          "options": {
-            "url": "https://www.jasonbase.com/things/enxw.json"
-          },
-          "success": {
-            "type": "$render"
-          }
+        "$load": "$network.request",
+        "options": {
+          "url": "https://www.jasonbase.com/things/enxw.json"
         }
-      },
+        "success": {
+          "type": "$render"
+        }
+      }
       "templates": {
         "body": {
           "header": {
             "style": {
               "shy": "true"
             },
-            "title": {
-              "type": "image",
-              "style": {
-                "width": "94",
-                "height": "27"
-              },
-              "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/logo.png"
-            },
+            "title": "Solidaridad",
             "menu": {
               "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/box.png"
             }
