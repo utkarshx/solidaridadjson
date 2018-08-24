@@ -112,8 +112,19 @@
                           "padding_top": "10",
                           "width": "25"
                         }
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "style": {
+                        "width": "100%",
+                        "padding": "0"
                       },
-                      {
+                      "type": "image",
+                      "url": "{{content}}"
+                    },
+                    {
                         "type": "textfield",
                         "name": "password",
                         "value": "dhenf93f!",
@@ -127,18 +138,7 @@
                           "secure": "true",
                           "size": "12"
                         }
-                      }
-                    ]
-                  },
-                  "items": [
-                    {
-                      "style": {
-                        "width": "100%",
-                        "padding": "0"
-                      },
-                      "type": "image",
-                      "url": "{{content}}"
-                    }
+                     }
                   ]
                 }
               }
