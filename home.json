@@ -1,33 +1,181 @@
 {
   "$jason": {
     "head": {
-      "title": "grid layout demo"
-    },
-    "body": {
-      "sections": [{
-        "items": [{
-          "type": "grid",
-          "component_width": "200",
-          "grid_border": "#abcdef",
-          "components": [{
-            "type": "image",
-            "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://www.jasonbase.com/things/enxw.json"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "header": {
             "style": {
-              "width": "80",
-              "padding": "10",
-              "border": "#123456"
+              "shy": "true"
+            },
+            "title": "Solidaridad",
+            "menu": {
+              "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/box.png"
             }
-          }, {
-            "type": "image",
-            "url": "https://pbs.twimg.com/profile_images/557061751150112768/eMwi4Xz2.jpeg",
-            "style": {
-              "width": "80",
-              "padding": "10",
-              "border": "#123456"
+          },
+          "sections": {
+            "{{#each $jason.posts}}": [
+              {
+                "{{#if ('type' in this) && (type=='stories') }}": {
+                  "type": "horizontal",
+                  "items": {
+                    "{{#each items}}": {
+                      "type": "vertical",
+                      "style": {
+                        "background": "#fafafa",
+                        "padding": "9",
+                        "spacing": "13",
+                        "width": "90",
+                        "align": "center",
+                        "distribution": "equalspacing",
+                        "height": "120"
+                      },
+                      "components": [
+                        {
+                          "type": "image",
+                          "url": "{{avatar}}",
+                          "style": {
+                            "width": "76",
+                            "height": "76",
+                            "corner_radius": "38"
+                          }
+                        },
+                        {
+                          "type": "label",
+                          "text": "{{name}}",
+                          "style": {
+                            "size": "12"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "{{#else}}": {
+                  "header": {
+                    "type": "horizontal",
+                    "style": {
+                      "background": "#ffffff",
+                      "padding": "9",
+                      "spacing": "13"
+                    },
+                    "components": [
+                      {
+                        "type": "image",
+                        "url": "{{avatar}}",
+                        "style": {
+                          "width": "38",
+                          "height": "38",
+                          "corner_radius": "19"
+                        }
+                      },
+                      {
+                        "type": "vertical",
+                        "components": [
+                          {
+                            "type": "label",
+                            "text": "{{name}}",
+                            "style": {
+                              "font": "HelveticaNeue-Bold",
+                              "size": "12"
+                            }
+                          },
+                          {
+                            "type": "label",
+                            "text": "{{location}} >",
+                            "style": {
+                              "font": "HelveticaNeue",
+                              "size": "11"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "space"
+                      },
+                      {
+                        "type": "image",
+                        "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/dotdotdot.png",
+                        "style": {
+                          "padding_top": "10",
+                          "width": "25"
+                        }
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "style": {
+                        "width": "100%",
+                        "padding": "0"
+                      },
+                      "type": "image",
+                      "url": "{{content}}"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "footer": {
+            "tabs": {
+              "style": {
+                "background": "rgba(255,255,255,0.8)",
+                "color": "#000000"
+              },
+              "items": [
+                {
+                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/home.png",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/home.json"
+                },
+                {
+                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/search.png",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/search.json"
+                },
+                {
+                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/camera.png",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/camera.json"
+                },
+                {
+                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/heart.png",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/heart.json"
+                },
+                {
+                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/profile.png",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/profile.json"
+                }
+              ]
             }
-          }]
-        }]
-      }]
+          }
+        }
+      }
     }
   }
 }
