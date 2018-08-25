@@ -1,158 +1,57 @@
 {
   "$jason": {
     "head": {
+      "title": "Todo App - Add view",
       "actions": {
         "$load": {
-          "type": "$network.request",
+          "type": "$render"
+        },
+        "$pull": {
+          "type": "$global.set",
           "options": {
-            "url": "https://www.jasonbase.com/things/enxw.json"
+            "todos": "{{'todos' in $global ? [{text: $get.todo, done: false, key: $global.current_key+1 }].concat($global.todos) : [{text: $get.todo, done: false, key: 0}] }}",
+            "current_key": "{{'current_key' in $global ? $global.current_key+1 : 0}}"
           },
           "success": {
-            "type": "$render"
+            "type": "$back"
           }
         }
       },
       "templates": {
         "body": {
           "header": {
+            "title": "Swipe down to Save",
             "style": {
-              "shy": "true"
-            },
-            "title": "Solidaridad",
-            "menu": {
-              "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/box.png"
+              "background": "#FF9800",
+              "color": "#ffffff"
             }
           },
-          "sections": {
-            "{{#each $jason.posts}}": [
-              {
-                   "header": {
-                    "type": "horizontal",
-                    "style": {
-                      "background": "#ffffff",
-                      "padding": "9",
-                      "spacing": "13"
-                    },
-                    "components": [
-                      {
-                        "type": "image",
-                        "url": "{{avatar}}",
-                        "style": {
-                          "width": "38",
-                          "height": "38",
-                          "corner_radius": "19"
-                        }
-                      },
-                      {
-                        "type": "vertical",
-                        "components": [
-                          {
-                            "type": "label",
-                            "text": "{{name}}",
-                            "style": {
-                              "font": "HelveticaNeue-Bold",
-                              "size": "12"
-                            }
-                          },
-                          {
-                            "type": "label",
-                            "text": "{{location}} >",
-                            "style": {
-                              "font": "HelveticaNeue",
-                              "size": "11"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "type": "space"
-                      },
-                      {
-                        "type": "image",
-                        "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/dotdotdot.png",
-                        "style": {
-                          "padding_top": "10",
-                          "width": "25"
-                        }
-                      }
-                    ]
-                  },
-                  "items": [
-                    {
-                      "type": "dropdown",
-                      "name": "someFieldName",
-                      "options": [
-                        {
-                          "label": "Dropdown Option 1",
-                          "value": "Value 1",
-                          "defaultSelected": "false"
-                        },
-                        {
-                          "label": "Dropdown Option 2",
-                          "value": "Value 2",
-                          "defaultSelected": "true"
-                        },
-                        {
-                          "label": "Dropdown Option 3",
-                          "value": "Value 3",
-                          "defaultSelected": "false"
-                        }
-                      ],
-                      "style": {
-                        "size": "30",
-                        "color": "rgb(200,0,0)",
-                        "padding": "10"
-                      }
-                    }
-                  ]
-              }
-            ]
+          "style": {
+            "background": "#FF9800",
+            "color": "#ffffff",
+            "border": "none"
           },
-          "footer": {
-            "tabs": {
-              "style": {
-                "background": "rgba(255,255,255,0.8)",
-                "color": "#000000"
-              },
+          "sections": [
+            {
               "items": [
                 {
-                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/home.png",
+                  "type": "textarea",
                   "style": {
-                    "height": "21"
+                    "padding": "10",
+                    "size": "30",
+                    "font": "HelveticaNeue",
+                    "color:placeholder": "#ebebeb",
+                    "color": "#ffffff",
+                    "width": "100%",
+                    "height": "400",
+                    "align": "left"
                   },
-                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/home.json"
-                },
-                {
-                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/search.png",
-                  "style": {
-                    "height": "21"
-                  },
-                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/search.json"
-                },
-                {
-                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/camera.png",
-                  "style": {
-                    "height": "21"
-                  },
-                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/camera.json"
-                },
-                {
-                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/heart.png",
-                  "style": {
-                    "height": "21"
-                  },
-                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/heart.json"
-                },
-                {
-                  "image": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/images/profile.png",
-                  "style": {
-                    "height": "21"
-                  },
-                  "url": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/profile.json"
+                  "placeholder": "Enter todo",
+                  "name": "todo"
                 }
               ]
             }
-          }
+          ]
         }
       }
     }
